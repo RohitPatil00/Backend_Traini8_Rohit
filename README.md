@@ -4,15 +4,15 @@ This project provides a RESTful API for managing government-funded training cent
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [API Endpoints](#api-endpoints)
-  - [POST /api/training-centers](#post-apitraining-centers)
-  - [GET /api/training-centers](#get-apitraining-centers)
-- [Validation Rules](#validation-rules)
-- [Error Handling](#error-handling)
-- [Future Enhancements](#future-enhancements)
+- Features
+- Technologies Used
+- Setup Instructions
+- API Endpoints
+  - POST /api/training-centers
+  - GET /api/training-centers
+- Validation Rules
+- Error Handling
+- Future Enhancements
 
 ## Features
 
@@ -42,5 +42,75 @@ Follow these steps to set up and run the Traini8 application locally:
 
 Clone the repository to your local machine using the following command:
 
-```bash
 git clone <repository-url>
+
+### Step 2: Navigate to the Project Directory
+
+Change into the project directory:
+
+cd <project-directory>
+
+### Step 3: Build the Project
+
+Use Maven to build the project:
+
+mvn clean install
+
+### Step 4: Run the Application
+
+You can run the application directly from your IDE or using the following command:
+
+mvn spring-boot:run
+
+The application will start on port 8080 by default.
+
+### Step 5: Access the API
+
+Once the application is running, you can access the API endpoints using a tool like Postman or cURL.
+
+## API Endpoints
+
+### POST /api/training-centers
+
+This endpoint allows you to create a new training center.
+
+- Request Body:
+{
+    "name": "Example Training Center",
+    "address": "123 Example St, Example City, Example State, 123456"
+}
+
+- Response:
+{
+    "id": 1,
+    "name": "Example Training Center",
+    "address": "123 Example St, Example City, Example State, 123456"
+}
+
+### GET /api/training-centers
+
+This endpoint retrieves a list of all training centers.
+
+- Response:
+[
+    {
+        "id": 1,
+        "name": "Example Training Center",
+        "address": "123 Example St, Example City, Example State, 123456"
+    }
+]
+
+## Validation Rules
+
+- name: Required, must be less than 40 characters.
+- address: Required.
+
+## Error Handling
+
+The application includes basic error handling that returns appropriate messages for validation failures. This is managed through a centralized exception handler.
+
+## Future Enhancements
+
+- Implement filtering for the GET endpoint.
+- Add more fields to the training center model.
+- Improve the user interface for API testing.
